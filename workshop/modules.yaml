@@ -4,9 +4,16 @@ modules:
         exit_sign: Setup Environment
     setup-environment:
         name: Setup Environment
-        exit_sign: Start Workshop
-    exercises/01-sample-content:
-        name: Sample Content
+        exit_sign: kapp-controller CRDs
+    exercises/01-kapp-controller-crds:
+        name: App Custom Resource
+        exit_sign: App Custom Resource
+    exercises/02-app-cr-intro:
+        name: App Custom Resource
+        exit_sign: Investigate App
+    exercises/03-describe-app:
+        name: Investigate App
+        exit_sign: Workshop Summary
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop
