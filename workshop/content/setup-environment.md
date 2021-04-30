@@ -1,9 +1,29 @@
-Include in this page any steps which should be run by a user to check that the workshop environment is setup correctly. Exactly what you provide in this step will depend on whether the workshop is designed to be deployed in a specific way.
+Before getting started, take a moment to learn about the tutorial environment you are working in.
 
-It is a good idea in this page to provide at least one sample command to run which is marked with the `execute` annotation so anyone doing the workshop understands they can click on marked commands to run them. For example:
+All commands in this tutorial can be executed by clicking the running stick figure icon on the side 
+of the command. Go ahead and run the following command to see the version of kubectl/Kubernetes available 
+during this workshop:
 
-```execute
-date
+```execute-1
+kubectl version
 ```
 
-Did you type the command in yourself? If you did, click on the command instead and you will find that it is executed for you. You can click on any command which has the <span class="fas fa-running"></span> icon shown to the right of it, and it will be copied to the interactive terminal and run. If you would rather make a copy of the command so you can paste it to another window, hold down the shift key when you click on the command.
+The number next to the running stick figure icon indicates where a command will be run (i.e. 1 for the top 
+terminal and 2 for the bottom). Go ahead and run the command below and see how it runs in the lower terminal:
+
+```execute-2
+echo hello from second terminal
+```
+
+Go ahead and clear both terminals and then follow the instructions in the text on the left side of the screen 
+throughout the rest of the tutorial:
+
+```execute-1
+clear
+```
+
+```execute-2
+clear
+```
+
+Click `Start Workshop` to continue.

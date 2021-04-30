@@ -1,27 +1,15 @@
-LAB - Markdown Sample
-=====================
+# LAB - An Introduction to kapp-controller
 
-Sample workshop content using Markdown formatting for pages.
+A tutorial on learning the fundamentals of Kubernetes package management with kapp-controller.
 
-For more detailed information on how to create and deploy workshops, consult
-the documentation for Educates at:
+# Run This Tutorial
 
-* https://docs.edukates.io
+As of now, this tutorial has only been run on `minikube`, so it is recommended to use `minikube` 
+to host the tutorial.
 
-If you already have the Educates operator installed and configured, to
-deploy and view this sample workshop, run:
-
-```
-kubectl apply -f https://raw.githubusercontent.com/eduk8s/lab-markdown-sample/master/resources/workshop.yaml
-kubectl apply -f https://raw.githubusercontent.com/eduk8s/lab-markdown-sample/master/resources/training-portal.yaml
-```
-
-This will deploy a training portal hosting just this workshop. To get the
-URL for accessing the training portal run:
-
-```
-kubectl get trainingportal/lab-markdown-sample
-```
-
-The training portal is configured to allow anonymous access. For your own
-workshop content you should consider removing anonymous access.
+1. `minikube start --vm=true` (The workshop requires the minikube ingress addon so `--vm=true` is [required for Mac users](https://github.com/kubernetes/minikube/issues/7332))
+2. `sh minikube.sh` (Once minikube is running, run the minikube.sh script to install everything needed to support the tutorial)
+3. `kubectl apply -k https://github.com/danielhelfand/lab-carvel-kapp-controller-intro` (Installs the tutorial)
+4. `watch kubectl get pods -n lab-carvel-kapp-controller-intro-w01` (Wait for all pods to be running in the `lab-carvel-kapp-controller-intro-w01` namespace)
+5. `kubectl get trainingportals` (Once the pod is running in `lab-carvel-kapp-controller-intro-w01`, run the command and click on the url under the `URL` column)
+6. Click `Start workshop` in your browser to begin tutorial

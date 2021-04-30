@@ -1,17 +1,16 @@
 apiVersion: training.eduk8s.io/v1alpha2
 kind: Workshop
 metadata:
-  name: lab-markdown-sample
+  name: lab-carvel-kapp-controller-intro
 spec:
-  title: Markdown Sample
-  description: A sample workshop using Markdown
+  title: An Introduction to kapp-controller
+  description: A tutorial on learning the fundamentals of Kubernetes package management with kapp-controller
   vendor: eduk8s.io
   difficulty: beginner
   duration: 15m
-  url: https://github.com/eduk8s/lab-markdown-sample
+  url: https://github.com/danielhelfand/lab-carvel-kapp-controller-intro
   content:
-    #image: quay.io/eduk8s/lab-markdown-sample:master
-    files: github.com/eduk8s/lab-markdown-sample
+    image: danielhelfand/lab-kapp-controller-intro:packaging
   session:
     namespaces:
       budget: small
@@ -21,5 +20,76 @@ spec:
         layout: split
       console:
         enabled: true
-      editor:
-        enabled: true
+    objects:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: Role
+      metadata:
+        name: kapp-controller-user-namespace
+      rules:
+      - apiGroups:
+        - kappctrl.k14s.io
+        - install.package.carvel.dev
+        resources:
+        - apps
+        - installedpackages
+        verbs:
+        - get
+        - list
+        - create
+        - delete
+        - update
+      - apiGroups: 
+        - apps 
+        - ""
+        resources:
+        - deployments
+        - deployments.apps
+        - services
+        - configmaps
+        verbs:
+        - get
+        - list
+        - create
+        - update
+        - delete
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      metadata:
+        name: kapp-controller-user-namespace-binding
+      roleRef:
+        apiGroup: rbac.authorization.k8s.io
+        kind: Role
+        name: kapp-controller-user-namespace
+      subjects:
+      - kind: ServiceAccount
+        namespace: $(workshop_namespace)
+        name: $(service_account)
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      metadata:
+        name: kapp-controller-user-cluster
+      rules:
+      - apiGroups:
+        - install.package.carvel.dev
+        - package.carvel.dev
+        resources:
+        - packagerepositories
+        - packages
+        verbs:
+        - get
+        - list
+        - create
+        - delete
+        - update
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      metadata:
+        name: kapp-controller-user-cluster-binding
+      roleRef:
+        apiGroup: rbac.authorization.k8s.io
+        kind: ClusterRole
+        name: kapp-controller-user-cluster
+      subjects:
+      - kind: ServiceAccount
+        namespace: $(workshop_namespace)
+        name: $(service_account)

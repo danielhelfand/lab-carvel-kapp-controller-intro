@@ -4,5 +4,10 @@ modules:
     activate:
     - workshop-overview
     - setup-environment
-    - exercises/01-sample-content
+    - exercises/01-creating-k8s-app
+    - exercises/02-packagerepository
+    - exercises/03-installedpackage
+    - exercises/04-app
+    - exercises/05-upgrade-version
+    - exercises/06-uninstall-package
     - workshop-summary

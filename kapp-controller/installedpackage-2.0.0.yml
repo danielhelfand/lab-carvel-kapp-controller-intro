@@ -1,0 +1,9 @@
+apiVersion: install.package.carvel.dev/v1alpha1
+kind: InstalledPackage
+metadata:
+  name: simple-app
+spec:
+  serviceAccountName: simple-app-sa
+  packageRef:
+    publicName: simple-app.corp.com
+    version: 2.0.0

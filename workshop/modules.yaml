@@ -5,8 +5,24 @@ modules:
     setup-environment:
         name: Setup Environment
         exit_sign: Start Workshop
-    exercises/01-sample-content:
-        name: Sample Content
+    exercises/01-creating-k8s-app:
+        name: Deploying an Application to Kubernetes
+        exit_sign: Package and PackageRepository
+    exercises/02-packagerepository:
+        name: Package and PackageRepository
+        exit_sign: Installing a Package
+    exercises/03-installedpackage:
+        name: Installing a Package
+        exit_sign: App CRD
+    exercises/04-app:
+        name: App CRD
+        exit_sign: Upgrade Package Version
+    exercises/05-upgrade-version:
+        name: Upgrade Package Version
+        exit_sign: Uninstall Package
+    exercises/06-uninstall-package:
+        name: Uninstall Package
+        exit_sign: Workshop Summary
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop

@@ -1,0 +1,11 @@
+---
+apiVersion: install.package.carvel.dev/v1alpha1
+kind: PackageRepository
+metadata:
+  # TODO: make each package repository name unique to avoid conflicts
+  name: simple-package-repository
+spec:
+  fetch:
+    imgpkgBundle:
+      # TODO: change name/package names
+      image: k8slt/kctrl-pkg-repo:v2.0.0
